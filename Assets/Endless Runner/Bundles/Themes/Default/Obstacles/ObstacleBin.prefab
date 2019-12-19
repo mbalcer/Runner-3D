@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 114000012751075388}
   - component: {fileID: 65000012973518938}
   - component: {fileID: 82000011322008754}
-  - component: {fileID: 114866312919401242}
   m_Layer: 9
   m_Name: ObstacleBin
   m_TagString: Obstacle
@@ -183,7 +182,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6707d904747d31c4eb049fc7a139eeb6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -269,19 +268,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114866312919401242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011638144408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e38bebbdc31db468a604b05bd1d75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: SFX
 --- !u!1 &1000012535006976
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class Missile : Obstacle
 	public void Awake()
 	{
 		m_Audio = GetComponent<AudioSource>();
-	}
+    }
 
 	public override void Spawn(TrackSegment segment, float t)
 	{
@@ -54,31 +54,5 @@ public class Missile : Obstacle
 
 	public void Update()
 	{
-		if (m_OwnSegement.manager.isMoving)
-		{
-			if (m_IsMoving)
-			{
-                transform.position += transform.forward * k_Speed * Time.deltaTime;
-			}
-			else
-			{
-				if (TrackManager.instance.segments[1] == m_OwnSegement)
-				{
-					if (animator != null)
-					{
-						animator.SetTrigger(s_RunHash);
-					}
-
-					if(m_Audio != null && movingSound != null && movingSound.Length > 0)
-					{
-						m_Audio.clip = movingSound[Random.Range(0, movingSound.Length)];
-						m_Audio.Play();
-						m_Audio.loop = true;
-					}
-
-					m_IsMoving = true;
-				}
-			}
-		}
 	}
 }

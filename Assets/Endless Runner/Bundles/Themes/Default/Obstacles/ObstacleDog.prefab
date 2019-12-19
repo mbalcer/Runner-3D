@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 114000010466800254}
   - component: {fileID: 136000012872324984}
   - component: {fileID: 82000013865502162}
-  - component: {fileID: 114361107942662600}
   m_Layer: 9
   m_Name: ObstacleDog
   m_TagString: Obstacle
@@ -77,7 +76,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a274514c3e79a214192d637691738dea, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a9ca43e15a6013b43af5e7c96fe909f5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -163,19 +162,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114361107942662600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010446287116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e38bebbdc31db468a604b05bd1d75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: SFX
 --- !u!1 &1000012151388900
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,4 +39,14 @@ public class PlayerMotor : MonoBehaviour
 
         characterController.Move(moveVector * Time.deltaTime);
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Obstacle")
+        {
+            other.GetComponent<Animation>().Play(); // TODO Działa tylko dla śmietników. Inne obiekty nie są animowane. Należy to naprawić
+            other.GetComponent<AudioSource>().Play();
+            //TODO zabranie jednego życia
+        }
+    }
 }
