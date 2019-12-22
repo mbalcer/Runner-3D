@@ -10,9 +10,11 @@ public class PlayerMotor : MonoBehaviour
     private float verticalVelocity = 0.0f;
     private float gravity = 12.0f;
     private float animationDuration = 3.0f;
+    private StarsManager starManager;
     // Start is called before the first frame update
     void Start()
     {
+        starManager = GameObject.Find("StarManager").GetComponent<StarsManager>();
         characterController = this.GetComponent<CharacterController>();
     }
 
@@ -47,6 +49,10 @@ public class PlayerMotor : MonoBehaviour
             other.GetComponent<Animation>().Play(); // TODO Działa tylko dla śmietników. Inne obiekty nie są animowane. Należy to naprawić
             other.GetComponent<AudioSource>().Play();
             //TODO zabranie jednego życia
+        }
+        if(other.tag == "Fruits")
+        {
+            starManager.CollectStar(other.gameObject);
         }
     }
 }
