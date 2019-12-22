@@ -29,7 +29,7 @@ public class StarsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerTransform.position.z - 30 > (spawnZ - 70)) {
+        if(playerTransform.position.z > (spawnZ - 50)) {
             SpawnStar(spawnX);
         }
         if(countStarsOnX >= maxSpawnX)
@@ -41,17 +41,27 @@ public class StarsManager : MonoBehaviour
             }
             countStarsOnX = 0;
         }
+        if(activeStars.Count > 12)
+        {
+            DeleteStar();
+        }
+
     }
 
     private void SpawnStar(int x)
     {
         GameObject go = Instantiate(stars[0]) as GameObject;
         go.transform.SetParent(transform);
-       // go.transform.localScale = new Vector3(go.transform.localScale.x * scaleFruit, go.transform.localScale.y * scaleFruit, go.transform.localScale.z * scaleFruit);
         go.transform.position = new Vector3(x, 1, spawnZ);
         spawnZ += 5;
         countStarsOnX++;
         activeStars.Add(go);
+    }
+
+    private void DeleteStar()
+    {
+        Destroy(activeStars[0]);
+        activeStars.RemoveAt(0);
     }
 
     private void DeleteStar(GameObject go)
