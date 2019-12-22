@@ -80,4 +80,9 @@ public class StarsManager : MonoBehaviour
         collectStars++;
         DeleteStar(go);
     }
+
+    public int GetStar()
+    {
+        return collectStars;
+    }
 }

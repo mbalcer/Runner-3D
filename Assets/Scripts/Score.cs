@@ -9,7 +9,13 @@ public class Score : MonoBehaviour
     private int maxDifficultyLevel = 20;
     private int scoreNextLevel = 10;
     public Text scoreText;
+    private StarsManager starManager;
     // Update is called once per frame
+
+    void Start()
+    {
+        starManager = GameObject.Find("StarManager").GetComponent<StarsManager>();
+    }
     void Update()
     {
         if(score>=scoreNextLevel)
@@ -17,7 +23,8 @@ public class Score : MonoBehaviour
             LevelUp();
         }
         score += Time.deltaTime * difficultyLevel;
-        scoreText.text =((int) score).ToString();
+        int allScore = (int)score + starManager.GetStar() * 2;
+        scoreText.text =allScore.ToString();
     }
     void LevelUp()
     {

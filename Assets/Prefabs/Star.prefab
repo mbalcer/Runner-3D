@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3764902841477675091}
   m_Layer: 0
   m_Name: Stars
-  m_TagString: Fruits
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

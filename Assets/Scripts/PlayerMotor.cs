@@ -74,7 +74,7 @@ public class PlayerMotor : MonoBehaviour
             other.GetComponent<AudioSource>().Play();
             //TODO zabranie jednego życia
         }
-        if(other.tag == "Fruits")
+        if(other.tag == "Star")
         {
             starManager.CollectStar(other.gameObject);
         }
