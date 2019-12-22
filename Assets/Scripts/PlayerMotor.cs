@@ -6,9 +6,12 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController characterController;
     private Vector3 moveVector;
+    private Animation animation;
     private float speed = 5.0f;
     private float verticalVelocity = 0.0f;
+    private float horizontalVelocity = 0.0f;
     private float gravity = 12.0f;
+    public float jumpForce = 5f;
     private float animationDuration = 3.0f;
     private StarsManager starManager;
     // Start is called before the first frame update
@@ -16,6 +19,7 @@ public class PlayerMotor : MonoBehaviour
     {
         starManager = GameObject.Find("StarManager").GetComponent<StarsManager>();
         characterController = this.GetComponent<CharacterController>();
+        animation = this.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -29,17 +33,37 @@ public class PlayerMotor : MonoBehaviour
         moveVector = Vector3.zero;
         if(characterController.isGrounded)
         {
-            verticalVelocity = -0.5f;
+            horizontalVelocity = Input.GetAxisRaw("Horizontal");
+            verticalVelocity = -gravity * Time.deltaTime;
+               animation.Play("Run");
+            
+            if (Input.GetButtonDown("Jump"))
+            {
+                animation.Stop("Run");
+                animation.Play("Runtojumpspring");
+                verticalVelocity = jumpForce;
+            
+            }
+            
         }
         else
         {
+      
             verticalVelocity -= gravity * Time.deltaTime;
+            horizontalVelocity = 0.0f;
+
         }
-        moveVector.x = Input.GetAxisRaw("Horizontal") *speed;
+
+        moveVector.x = horizontalVelocity * speed;
         moveVector.y = verticalVelocity;
         moveVector.z = speed;
 
         characterController.Move(moveVector * Time.deltaTime);
+
+    }
+    public void SetSpeed(float modifier)
+    {
+        speed = 5.0f + modifier;
     }
 
     public void OnTriggerEnter(Collider other)
