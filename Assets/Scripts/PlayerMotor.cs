@@ -14,10 +14,12 @@ public class PlayerMotor : MonoBehaviour
     public float jumpForce = 5f;
     private float animationDuration = 3.0f;
     private StarsManager starManager;
+    private HeartManager heartManager;
     // Start is called before the first frame update
     void Start()
     {
         starManager = GameObject.Find("StarManager").GetComponent<StarsManager>();
+        heartManager = GameObject.Find("HeartManager").GetComponent<HeartManager>();
         characterController = this.GetComponent<CharacterController>();
         animation = this.GetComponent<Animation>();
     }
@@ -72,7 +74,7 @@ public class PlayerMotor : MonoBehaviour
         {
             other.GetComponent<Animation>().Play(); // TODO Działa tylko dla śmietników. Inne obiekty nie są animowane. Należy to naprawić
             other.GetComponent<AudioSource>().Play();
-            //TODO zabranie jednego życia
+            heartManager.heartbroken();
         }
         if(other.tag == "Star")
         {
