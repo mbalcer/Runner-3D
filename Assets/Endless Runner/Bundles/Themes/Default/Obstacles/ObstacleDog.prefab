@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4000010250284340}
   - component: {fileID: 114000010466800254}
-  - component: {fileID: 136000012872324984}
   - component: {fileID: 82000013865502162}
+  - component: {fileID: 1363676398}
   m_Layer: 9
   m_Name: ObstacleDog
   m_TagString: Obstacle
@@ -52,20 +52,6 @@ MonoBehaviour:
   movingSound:
   - {fileID: 8300000, guid: a274514c3e79a214192d637691738dea, type: 3}
   - {fileID: 8300000, guid: fa9008d188552c84b99adb204f504fbf, type: 3}
---- !u!136 &136000012872324984
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010446287116}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.35
-  m_Height: 1.6
-  m_Direction: 2
-  m_Center: {x: -0.01, y: 0.85, z: 0}
 --- !u!82 &82000013865502162
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76,7 +62,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a9ca43e15a6013b43af5e7c96fe909f5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fa9008d188552c84b99adb204f504fbf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -162,6 +148,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!65 &1363676398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010446287116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6761719, y: 1.304224, z: 1.707324}
+  m_Center: {x: 0.01123047, y: 0.6247193, z: 0.1791748}
 --- !u!1 &1000012151388900
 GameObject:
   m_ObjectHideFlags: 0

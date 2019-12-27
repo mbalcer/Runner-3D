@@ -183,7 +183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4617986104442376069}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -397,7 +397,6 @@ GameObject:
   - component: {fileID: 4619525097517946979}
   - component: {fileID: 4638937633144233297}
   - component: {fileID: 4630925305049752337}
-  - component: {fileID: 4617856910294494683}
   m_Layer: 0
   m_Name: StreetLight
   m_TagString: Untagged
@@ -465,19 +464,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4617856910294494683
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4617986105613146357}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.0781617, y: 6.766012, z: 0.41357604}
-  m_Center: {x: 1.3507946, y: 3.2973309, z: -0.0049704015}
 --- !u!1 &4617986106489803461
 GameObject:
   m_ObjectHideFlags: 0

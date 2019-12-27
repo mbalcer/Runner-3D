@@ -72,8 +72,14 @@ public class PlayerMotor : MonoBehaviour
     {
         if(other.tag == "Obstacle")
         {
-            other.GetComponent<Animation>().Play(); // TODO Działa tylko dla śmietników. Inne obiekty nie są animowane. Należy to naprawić
-            other.GetComponent<AudioSource>().Play();
+            if(other.GetComponent<Animation>() != null)
+            {
+                other.GetComponent<Animation>().Play();
+            }
+            if(other.GetComponent<AudioSource>() != null)
+            {
+                other.GetComponent<AudioSource>().Play();
+            }
             heartManager.heartbroken();
         }
         if(other.tag == "Star")
