@@ -13,6 +13,9 @@ public class PlayerMotor : MonoBehaviour
     private float gravity = 12.0f;
     public float jumpForce = 5f;
     private float animationDuration = 3.0f;
+    public GameObject Heart1;
+    public GameObject Heart2;
+    public GameObject Heart3;
     private StarsManager starManager;
     private HeartManager heartManager;
     // Start is called before the first frame update
@@ -27,7 +30,34 @@ public class PlayerMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time < animationDuration)
+        switch (heartManager.getHealth())
+        {
+            case 3:
+                Heart1.SetActive(true);
+                Heart2.SetActive(true);
+                Heart3.SetActive(true);
+                break;
+            case 2:
+                Heart1.SetActive(true);
+                Heart2.SetActive(true);
+                Heart3.SetActive(false);
+                break;
+            case 1:
+                Heart1.SetActive(true);
+                Heart2.SetActive(false);
+                Heart3.SetActive(false);
+                break;
+            default:
+                Heart1.SetActive(false);
+                Heart2.SetActive(false);
+                Heart3.SetActive(false);
+                heartManager.ResetHealth();
+                //TODO
+                // Wstawić zmiane sceny na deathScene
+                break;
+        }
+        
+        if (Time.time < animationDuration)
         {
             characterController.Move(Vector3.forward * speed * Time.deltaTime);
             return;
@@ -81,6 +111,8 @@ public class PlayerMotor : MonoBehaviour
                 other.GetComponent<AudioSource>().Play();
             }
             heartManager.heartbroken();
+            Debug.Log(heartManager.getHealth());
+          
         }
         if(other.tag == "Star")
         {
