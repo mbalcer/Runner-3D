@@ -11,6 +11,8 @@ public class StarsManager : MonoBehaviour
     private int maxSpawnX = 5, countStarsOnX = 0;
     private int spawnX;
     public int collectStars = 0;
+    public bool coinMagnet = false;
+    public int timeCoinMagnet = 0;
 
     private List<GameObject> activeStars;
 
@@ -41,11 +43,22 @@ public class StarsManager : MonoBehaviour
             }
             countStarsOnX = 0;
         }
-        if(activeStars.Count > 12)
+        if(activeStars.Count > 11)
         {
             DeleteStar();
         }
+        if(coinMagnet)
+        {
+            if(playerTransform.position.z + 5 >= activeStars[0].transform.position.z) 
+                activeStars[0].transform.position = Vector3.MoveTowards(activeStars[0].transform.position, playerTransform.position, 10*Time.deltaTime);
+            if(playerTransform.position.z >= activeStars[0].transform.position.z)
+                CollectStar(activeStars[0].gameObject, 1);            
+        }
 
+        if (timeCoinMagnet > 0)
+            timeCoinMagnet--;
+        if (coinMagnet && timeCoinMagnet == 0)
+            coinMagnet = false;
     }
 
     private void SpawnStar(int x)
@@ -75,9 +88,9 @@ public class StarsManager : MonoBehaviour
         return Random.Range(-2, 2);
     }
 
-    public void CollectStar(GameObject go)
+    public void CollectStar(GameObject go, int score)
     {
-        collectStars++;
+        collectStars += score;
         DeleteStar(go);
     }
 

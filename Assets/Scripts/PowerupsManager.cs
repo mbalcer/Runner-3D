@@ -10,8 +10,8 @@ public class PowerupsManager : MonoBehaviour
     public int spawnZ;
     private HeartManager heartManager;
     private Transform playerTransform;
-    private int beginSpawnZ = 0;
-    private int powerupsLength = 100;
+    private int beginSpawnZ = 100;
+    private int powerupsLength = 300;
     void Start()
     {
         heartManager = GameObject.Find("HeartManager").GetComponent<HeartManager>();

@@ -18,6 +18,8 @@ public class PlayerMotor : MonoBehaviour
     public GameObject Heart3;
     private StarsManager starManager;
     private HeartManager heartManager;
+    private bool scoreMultipler = false;
+    private int timeScoreMultipler = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,6 +94,10 @@ public class PlayerMotor : MonoBehaviour
 
         characterController.Move(moveVector * Time.deltaTime);
 
+        if (timeScoreMultipler > 0)
+            timeScoreMultipler--;
+        if (scoreMultipler && timeScoreMultipler == 0)
+            scoreMultipler = false;
     }
     public void SetSpeed(float modifier)
     {
@@ -116,10 +122,28 @@ public class PlayerMotor : MonoBehaviour
         }
         if(other.tag == "Star")
         {
-            starManager.CollectStar(other.gameObject);
+            if (scoreMultipler)
+                starManager.CollectStar(other.gameObject, 2);
+            else
+                starManager.CollectStar(other.gameObject, 1);            
         }
         if(other.tag == "Powerup")
         {
+            if (other.name == "ExtraLife(Clone)")
+            {
+                heartManager.addHeart();
+            }
+            else if (other.name == "ScoreMultiplier(Clone)")
+            {
+                scoreMultipler = true;
+                timeScoreMultipler += 500;
+            }
+            else if (other.name == "CoinMagnet(Clone)")
+            {
+                starManager.coinMagnet = true;
+                starManager.timeCoinMagnet += 500;
+            }
+            Debug.Log(other.name);
             Destroy(other.gameObject);
         }
     }
