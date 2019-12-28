@@ -52,7 +52,7 @@ public class StarsManager : MonoBehaviour
     {
         GameObject go = Instantiate(stars[0]) as GameObject;
         go.transform.SetParent(transform);
-        go.transform.position = new Vector3(x, 1, spawnZ);
+        go.transform.position = new Vector3(x, 0.5f, spawnZ);
         spawnZ += 5;
         countStarsOnX++;
         activeStars.Add(go);
