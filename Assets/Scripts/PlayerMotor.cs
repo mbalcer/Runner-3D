@@ -118,5 +118,9 @@ public class PlayerMotor : MonoBehaviour
         {
             starManager.CollectStar(other.gameObject);
         }
+        if(other.tag == "Powerup")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

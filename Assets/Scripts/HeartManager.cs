@@ -12,6 +12,11 @@ public class HeartManager : MonoBehaviour
         health -= 1;
     }
 
+    public void addHeart()
+    {
+        health += 1;
+    }
+
     public void ResetHealth()
     {
         health = 3;
