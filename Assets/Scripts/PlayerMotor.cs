@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -54,8 +55,8 @@ public class PlayerMotor : MonoBehaviour
                 Heart2.SetActive(false);
                 Heart3.SetActive(false);
                 heartManager.ResetHealth();
-                //TODO
-                // Wstawić zmiane sceny na deathScene
+
+                SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
                 break;
         }
         
