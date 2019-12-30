@@ -13,7 +13,8 @@ public class PlayerMotor : MonoBehaviour
     private float horizontalVelocity = 0.0f;
     private float gravity = 12.0f;
     public float jumpForce = 5f;
-    private float animationDuration = 3.0f;
+    private float animationDuration = 9f;
+    private float time = 0f;
     public GameObject Heart1;
     public GameObject Heart2;
     public GameObject Heart3;
@@ -33,6 +34,14 @@ public class PlayerMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (time < animationDuration)
+        {
+            time += 0.05f;
+            characterController.Move(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log(time);
+            return;
+        }
         switch (heartManager.getHealth())
         {
             case 3:
@@ -58,16 +67,11 @@ public class PlayerMotor : MonoBehaviour
 
                 int score = Score.GetAllScore();
                 DataManager.SetScore(score);
-
+                time = 0;
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
                 break;
         }
         
-        if (Time.time < animationDuration)
-        {
-            characterController.Move(Vector3.forward * speed * Time.deltaTime);
-            return;
-        }
         moveVector = Vector3.zero;
         if(characterController.isGrounded)
         {
