@@ -47,6 +47,7 @@ public class PowerupsManager : MonoBehaviour
     {
         int powerupIndex = randomPowerup();
         GameObject go = Instantiate(powerups[powerupIndex]) as GameObject;
+
         go.transform.SetParent(transform);
         go.transform.position = new Vector3(0, 0.5f, spawnZ);
     }

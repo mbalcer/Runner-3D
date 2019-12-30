@@ -91,6 +91,7 @@ public class StarsManager : MonoBehaviour
     public void CollectStar(GameObject go, int score)
     {
         collectStars += score;
+
         DeleteStar(go);
     }
 

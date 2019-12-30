@@ -34,6 +34,7 @@ public class PlayerMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         
         if (time < animationDuration)
         {
@@ -92,7 +93,8 @@ public class PlayerMotor : MonoBehaviour
         {
       
             verticalVelocity -= gravity * Time.deltaTime;
-            horizontalVelocity = 0.0f;
+            //   horizontalVelocity = 0.0f;
+            horizontalVelocity = Input.GetAxisRaw("Horizontal"); //wystarczy zakomentować jeśli nie ma być ruchu podczas skoku
 
         }
 
@@ -130,6 +132,9 @@ public class PlayerMotor : MonoBehaviour
         }
         if(other.tag == "Star")
         {
+
+            SoundManager.PlaySound("star");
+
             if (scoreMultipler)
                 starManager.CollectStar(other.gameObject, 2);
             else
@@ -139,15 +144,24 @@ public class PlayerMotor : MonoBehaviour
         {
             if (other.name == "ExtraLife(Clone)")
             {
+
+                SoundManager.PlaySound("powerup");
+
                 heartManager.addHeart();
             }
             else if (other.name == "ScoreMultiplier(Clone)")
             {
+                SoundManager.PlaySound("premium");
+                
                 scoreMultipler = true;
                 timeScoreMultipler += 500;
             }
             else if (other.name == "CoinMagnet(Clone)")
             {
+
+
+                SoundManager.PlaySound("magnet");
+
                 starManager.coinMagnet = true;
                 starManager.timeCoinMagnet += 500;
             }
