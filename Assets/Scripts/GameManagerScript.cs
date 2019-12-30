@@ -39,7 +39,7 @@ public class GameManagerScript : MonoBehaviour
     {
         string[] data = new string[10];
 
-        System.IO.StreamReader file = new System.IO.StreamReader(getRankingPath());
+        StreamReader file = new StreamReader(GetRankingPath());
 
         for (int i = 0; i < 5; i++)
         {
@@ -64,9 +64,9 @@ public class GameManagerScript : MonoBehaviour
         return data;
     }
 
-    private String getRankingPath()
+    private string GetRankingPath()
     {
-        string directory = System.IO.Path.GetFullPath(".");
+        string directory = Path.GetFullPath(".");
         string path = directory + "\\Assets\\Scripts\\Ranking.txt";
 
         return path;
@@ -133,8 +133,8 @@ public class GameManagerScript : MonoBehaviour
                 text += nick + ";" + score + Environment.NewLine;
             }
         }
-        
-        System.IO.File.WriteAllText(getRankingPath(), text);
+
+        File.WriteAllText(GetRankingPath(), text);
     }
 
     private void DisplayResult(string nick, string score, string rank)
@@ -154,6 +154,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void LoadMenu()
     {
+        SoundManager.PlaySound("click");
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
@@ -171,16 +172,19 @@ public class GameManagerScript : MonoBehaviour
 
     public void ReloadGame()
     {
+        SoundManager.PlaySound("click");
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
 
     public void LoadRanking()
     {
+        SoundManager.PlaySound("click");
         SceneManager.LoadScene("Ranking", LoadSceneMode.Single);
     }
 
     public void Exit()
     {
+        SoundManager.PlaySound("click");
         Application.Quit();
     }
 }

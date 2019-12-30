@@ -66,10 +66,14 @@ public class PlayerMotor : MonoBehaviour
                 Heart3.SetActive(false);
                 heartManager.ResetHealth();
 
+                time = 0;
+
                 int score = Score.GetAllScore();
                 DataManager.SetScore(score);
-                time = 0;
+                
+                SoundManager.PlaySound("end");
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+
                 break;
         }
         

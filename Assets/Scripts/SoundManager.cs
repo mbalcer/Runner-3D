@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip star, jumpSound, magnet, powerup, premium, menuSound;
+    public static AudioClip star, jumpSound, magnet, powerup, premium, menuSound, click, gameOver;
     private static AudioSource audioSrc;
     private static bool createdSound = false;
 
     void Start()
     {
-       
         star = Resources.Load<AudioClip>("star");
         jumpSound = Resources.Load<AudioClip>("Jump2");
         magnet = Resources.Load<AudioClip>("Magnet");
         powerup = Resources.Load<AudioClip>("PowerUp");
         premium = Resources.Load<AudioClip>("PremiumCurrency");
+        click = Resources.Load<AudioClip>("Click");
+        gameOver = Resources.Load<AudioClip>("GameOver");
        
         if (createdSound == false)
         {
@@ -25,16 +26,16 @@ public class SoundManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             createdSound = true;
         }
-            audioSrc.Play();
-        
+
+        audioSrc.Play();
     }
 
     // Update is called once per frame
-
     void Update()
     {
 
     }
+
     public static void PlaySound(string clip)
     {
         switch (clip)
@@ -53,6 +54,12 @@ public class SoundManager : MonoBehaviour
                 break;
             case "premium":
                 audioSrc.PlayOneShot(premium);
+                break;
+            case "click":
+                audioSrc.PlayOneShot(click);
+                break;
+            case "end":
+                audioSrc.PlayOneShot(gameOver);
                 break;
         }
     }
