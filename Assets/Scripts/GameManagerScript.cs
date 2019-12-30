@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using System.IO;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class GameManagerScript : MonoBehaviour
     {
         string[] data = new string[10];
 
-        System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\szymo\unity-workspace\Project-Game-3D\Assets\Scripts\Ranking.txt");
+        System.IO.StreamReader file = new System.IO.StreamReader(getRankingPath());
 
         for (int i = 0; i < 5; i++)
         {
@@ -61,6 +62,14 @@ public class GameManagerScript : MonoBehaviour
         file.Close();
 
         return data;
+    }
+
+    private String getRankingPath()
+    {
+        string directory = System.IO.Path.GetFullPath(".");
+        string path = directory + "\\Assets\\Scripts\\Ranking.txt";
+
+        return path;
     }
     
     private void DisplayRanking(string[] data)
@@ -125,7 +134,7 @@ public class GameManagerScript : MonoBehaviour
             }
         }
         
-        System.IO.File.WriteAllText(@"C:\Users\szymo\unity-workspace\Project-Game-3D\Assets\Scripts\Ranking.txt", text);
+        System.IO.File.WriteAllText(getRankingPath(), text);
     }
 
     private void DisplayResult(string nick, string score, string rank)
