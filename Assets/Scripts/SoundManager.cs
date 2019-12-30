@@ -11,8 +11,8 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
        
-        star = Resources.Load<AudioClip>("ButtonPresses");
-       // jumpSound = Resources.Load<AudioClip>("Jump2");
+        star = Resources.Load<AudioClip>("star");
+        jumpSound = Resources.Load<AudioClip>("Jump2");
         magnet = Resources.Load<AudioClip>("Magnet");
         powerup = Resources.Load<AudioClip>("PowerUp");
         premium = Resources.Load<AudioClip>("PremiumCurrency");
