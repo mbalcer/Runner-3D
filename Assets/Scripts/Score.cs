@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
+    private static int allScore = 0;
     private float score = 2.85f;
     private int difficultyLevel = 1;
     private int maxDifficultyLevel = 20;
@@ -23,16 +24,22 @@ public class Score : MonoBehaviour
             LevelUp();
         }
         score += Time.deltaTime * difficultyLevel;
-        int allScore = (int)score + starManager.GetStar() * 2;
-        scoreText.text =allScore.ToString();
+        allScore = (int)score + starManager.GetStar() * 2;
+        scoreText.text = allScore.ToString();
     }
     void LevelUp()
     {
         if (difficultyLevel == maxDifficultyLevel)
             return;
+
         scoreNextLevel *= 2;
         difficultyLevel++;
         GetComponent<PlayerMotor>().SetSpeed(difficultyLevel);
         Debug.Log(difficultyLevel);
+    }
+
+    public static int GetAllScore()
+    {
+        return allScore;
     }
 }

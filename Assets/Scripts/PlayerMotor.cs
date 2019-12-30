@@ -56,6 +56,9 @@ public class PlayerMotor : MonoBehaviour
                 Heart3.SetActive(false);
                 heartManager.ResetHealth();
 
+                int score = Score.GetAllScore();
+                DataManager.SetScore(score);
+
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
                 break;
         }
