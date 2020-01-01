@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 6400495580984801609}
   m_Layer: 0
   m_Name: Car2FrontWheels
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,9 +833,10 @@ GameObject:
   - component: {fileID: 6410781593116004935}
   - component: {fileID: 6400495581281704103}
   - component: {fileID: 286728517410861395}
+  - component: {fileID: 883861039630977688}
   m_Layer: 0
   m_Name: Car2Body
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -908,11 +909,107 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6377408454683181025}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5207483, y: 2.3156831, z: 2.7728598}
   m_Center: {x: -0.000000058591667, y: 1.0876781, z: 0.0036599645}
+--- !u!82 &883861039630977688
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377408454683181025}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7ef9170142a1ae94b9a938af68cfae07, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6377408454737403963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +1101,7 @@ GameObject:
   - component: {fileID: 6400495577956629629}
   m_Layer: 0
   m_Name: Car2RearWheels
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1080,7 +1177,6 @@ GameObject:
   - component: {fileID: 6380654335346140299}
   - component: {fileID: 6410781603856975407}
   - component: {fileID: 6400495578524149317}
-  - component: {fileID: 6419763460187099295}
   - component: {fileID: 4967767682416202424}
   m_Layer: 0
   m_Name: Tile11
@@ -1152,27 +1248,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6419763460187099295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6377408455179096789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f119face70eef45923442a053ff451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathParent: {fileID: 6380654334699540711}
-  manager: {fileID: 0}
-  objectRoot: {fileID: 0}
-  collectibleTransform: {fileID: 0}
-  possibleObstacles:
-  - {fileID: 114000011060247364, guid: ec0335ae7fd65b74898920e51d042abd, type: 3}
-  obstaclePositions:
-  - 0.34
-  - 0.58
 --- !u!65 &4967767682416202424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2098,9 +2173,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0d9e50755a43a614a8233233466a4e80, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7ef9170142a1ae94b9a938af68cfae07, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.65
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2508,7 +2583,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000011742927702, guid: d68ac797bf384f84bbca159dc2a6e4d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d68ac797bf384f84bbca159dc2a6e4d7, type: 3}
 --- !u!4 &3200779947880940705 stripped
 Transform:

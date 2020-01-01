@@ -16,7 +16,7 @@ public class LightManager : MonoBehaviour
     void Update()
     {
         Vector3 vector = player.transform.position;
-        vector += new Vector3(0f, 9.0f, -3.0f);
+        vector += new Vector3(0f, 6.0f, -5.0f);
 
         transform.position = vector;
     }

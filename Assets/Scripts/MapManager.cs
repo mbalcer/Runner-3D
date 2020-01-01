@@ -10,7 +10,7 @@ public class MapManager : MonoBehaviour
     private Transform playerTransform;
     private float spawnZ = 0.0f;
     private float tileLength = 18.0f;
-    private int amountTilesOnScreen = 4;
+    private readonly int amountTilesOnScreen = 10;
     private int lastPrefabIndex = 0;
 
     public List<GameObject> activeTiles;

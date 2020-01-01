@@ -126,10 +126,30 @@ public class PlayerMotor : MonoBehaviour
             {
                 other.GetComponent<Animation>().Play();
             }
+
             if(other.GetComponent<AudioSource>() != null)
             {
                 other.GetComponent<AudioSource>().Play();
             }
+
+            if (other.name == "ObstacleDog")
+            {
+                SoundManager.PlaySound("dog");
+                Destroy(other.gameObject);
+            }
+
+            else if (other.name == "Car1Body")
+            {
+                SoundManager.PlaySound("car");
+                Destroy(GameObject.Find("Car02"));
+            }
+
+            else if (other.name == "Car2Body")
+            {
+                SoundManager.PlaySound("car");
+                Destroy(GameObject.Find("Car01"));
+            }
+
             heartManager.heartbroken();
             Debug.Log(heartManager.getHealth());
           

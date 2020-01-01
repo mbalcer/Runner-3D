@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip star, jumpSound, magnet, powerup, premium, menuSound, click, gameOver;
+    public static AudioClip star, jumpSound, magnet, powerup, premium, menuSound, click, car, dog, gameOver;
     private static AudioSource audioSrc;
     private static bool createdSound = false;
 
@@ -16,8 +16,10 @@ public class SoundManager : MonoBehaviour
         powerup = Resources.Load<AudioClip>("PowerUp");
         premium = Resources.Load<AudioClip>("PremiumCurrency");
         click = Resources.Load<AudioClip>("Click");
+        car = Resources.Load<AudioClip>("CarCrash");
+        dog = Resources.Load<AudioClip>("Dog");
         gameOver = Resources.Load<AudioClip>("GameOver");
-       
+        
         if (createdSound == false)
         {
             audioSrc = GetComponent<AudioSource>();
@@ -57,6 +59,12 @@ public class SoundManager : MonoBehaviour
                 break;
             case "click":
                 audioSrc.PlayOneShot(click);
+                break;
+            case "car":
+                audioSrc.PlayOneShot(car);
+                break;
+            case "dog":
+                audioSrc.PlayOneShot(dog);
                 break;
             case "end":
                 audioSrc.PlayOneShot(gameOver);
