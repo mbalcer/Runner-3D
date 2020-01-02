@@ -5,16 +5,19 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEditor;
 
 public class GameManagerScript : MonoBehaviour
 {
     private Scene scene;
     private string nickname;
     private Text Nickname;
+    private string path;
 
     // Start is called before the first frame update
     void Start()
     {
+        path = Application.dataPath + "/Resources/Ranking.txt";
         scene = SceneManager.GetActiveScene();
 
         if (scene.name.Equals("Ranking"))
@@ -34,12 +37,11 @@ public class GameManagerScript : MonoBehaviour
             DisplayResult(nickname, score.ToString(), place);
         }
     }
-
+    
     private string[] ReadData()
     {
         string[] data = new string[10];
-
-        StreamReader file = new StreamReader(GetRankingPath());
+        StreamReader file = new StreamReader(path);
 
         for (int i = 0; i < 5; i++)
         {
@@ -62,14 +64,6 @@ public class GameManagerScript : MonoBehaviour
         file.Close();
 
         return data;
-    }
-
-    private string GetRankingPath()
-    {
-        string directory = Path.GetFullPath(".");
-        string path = directory + "\\Assets\\Scripts\\Ranking.txt";
-
-        return path;
     }
     
     private void DisplayRanking(string[] data)
@@ -118,10 +112,11 @@ public class GameManagerScript : MonoBehaviour
 
         return 0;
     }
-
+    
     private void WriteData(string[] data)
     {
         string text = "";
+        StreamWriter file = new StreamWriter(path, false);
 
         for (int i = 0; i < 5; i++)
         {
@@ -130,11 +125,12 @@ public class GameManagerScript : MonoBehaviour
 
             if (nick != null && score != null)
             {
-                text += nick + ";" + score + Environment.NewLine;
+                text = nick + ";" + score;
+                file.WriteLine(text);
             }
         }
 
-        File.WriteAllText(GetRankingPath(), text);
+        file.Close();
     }
 
     private void DisplayResult(string nick, string score, string rank)

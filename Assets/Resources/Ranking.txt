@@ -1,0 +1,3 @@
+player1;200
+player2;150
+player3;100
